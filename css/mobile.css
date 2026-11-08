@@ -1,0 +1,36 @@
+/* Phone-only additions: lock screen, settings sheet. Uses the desktop theme variables (static/style.css). */
+html.cc-locked .topbar, html.cc-locked main, html.cc-locked .bottom-tabs { visibility: hidden; }
+html.cc-locked body { overflow: hidden; }
+
+.lock-screen {
+  position: fixed; inset: 0; z-index: 400; background: var(--bg); display: flex; align-items: center; justify-content: center;
+  padding: calc(1.5rem + env(safe-area-inset-top)) 1.25rem calc(1.5rem + env(safe-area-inset-bottom)); overflow-y: auto;
+}
+.lock-card { width: 100%; max-width: 380px; display: flex; flex-direction: column; align-items: stretch; gap: .7rem; text-align: center; }
+.lock-icon { width: 96px; height: 96px; border-radius: 22px; align-self: center; box-shadow: var(--shadow); }
+.lock-card h1 { margin: .4rem 0 0; font-size: 1.6rem; }
+.lock-card p { margin: 0; }
+.lock-label { text-align: left; font-weight: 600; margin-top: .6rem; }
+.lock-input {
+  font: inherit; font-size: 17px; /* >=16px: no iOS zoom */ padding: .8rem .9rem; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--card); color: var(--text); width: 100%;
+}
+.lock-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.lock-remember { display: flex; align-items: center; gap: .5rem; justify-content: flex-start; font-size: .95rem; }
+.lock-remember input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
+.lock-btn { min-height: 48px; font-size: 1.05rem; }
+.lock-btn:disabled { opacity: .6; }
+.lock-error { color: var(--danger); min-height: 1.4em; font-size: .92rem; }
+
+.sheet-bg { align-items: flex-end; padding: 0; }
+.sheet {
+  max-width: 520px; border-radius: 16px 16px 0 0; max-height: 88vh; overflow-y: auto;
+  padding-bottom: calc(1.3rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 700px) { .sheet-bg { align-items: center; padding: 1rem; } .sheet { border-radius: 14px; } }
+.sheet-h { display: flex; align-items: center; justify-content: space-between; }
+.sheet section { border-top: 1px solid var(--line); padding: .8rem 0; }
+.sheet section h3 { margin-bottom: .3rem; }
+.sheet section p { margin: .3rem 0; }
+.sheet .btn { min-height: 44px; }
+.danger-btn { background: transparent; color: var(--danger); border: 1px solid var(--danger); }

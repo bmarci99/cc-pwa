@@ -1,0 +1,10 @@
+{
+ "v": 1,
+ "salt": "5nH6njyelDVMg9FuZdEuQg==",
+ "iv": "zImyTD285Onz3kWT",
+ "iterations": 600000,
+ "kdf": "PBKDF2-SHA256",
+ "cipher": "AES-256-GCM",
+ "compression": "gzip",
+ "created": "2026-11-08T16:37:42.473963+00:00"
+}

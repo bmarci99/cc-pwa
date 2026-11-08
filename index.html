@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" class="cc-locked">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://api.chess.com; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chess Coach</title>
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#1b1a17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Chess Coach">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="pieces/wN.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#dashboard"><img src="pieces/wN.svg" alt=""><span>Chess Coach</span></a>
+    <nav class="tabs" aria-label="Main">
+      <a href="#dashboard" data-view="dashboard">Dashboard</a>
+      <a href="#train" data-view="train">Train</a>
+      <a href="#play" data-view="play">Play</a>
+      <a href="#analysis" data-view="analysis">Analysis</a>
+      <a href="#games" data-view="games">My Games</a>
+      <a href="#openings" data-view="openings">Openings</a>
+      <a href="#coach" data-view="coach">Ask Coach</a>
+    </nav>
+    <div class="top-actions">
+      <label id="llm-toggle" class="switch hidden" title="Ask Claude for a coach-style explanation (slower)">
+        <input type="checkbox" id="llm-cb"><span class="sw"></span><span class="sw-label">LLM</span>
+      </label>
+      <button id="mute-btn" class="icon-btn" aria-label="Toggle sound">🔊</button>
+      <button id="theme-btn" class="icon-btn" title="Toggle light/dark theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main id="view"></main>
+  <nav class="bottom-tabs" aria-label="Main">
+    <a href="#dashboard" data-view="dashboard"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a>
+    <a href="#train" data-view="train"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" class="fill"/></svg><span>Train</span></a>
+    <a href="#play" data-view="play"><svg viewBox="0 0 24 24"><path d="M8 20h9l-1-3.5c1.8-1.6 2.6-3.6 2.4-6C18 7 15.5 4.5 12 4.5c-1.2 0-2 .4-2.6 1L7 6.5l.6 1.6L6 9.7l.8 1.8 2.8-.7.9 1.4L8.6 16z"/><path d="M6.5 20h11"/></svg><span>Play</span></a>
+    <a href="#analysis" data-view="analysis"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/><path d="M8 11.5 10 9.5l1.5 1.5L13.5 8.5"/></svg><span>Analyse</span></a>
+    <a href="#games" data-view="games"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 12h16M12 4v16"/></svg><span>Games</span></a>
+    <a href="#openings" data-view="openings"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 4 4.8v13.7c3.5-.3 6 .2 8 1.7 2-1.5 4.5-2 8-1.7V4.8c-3.5-.3-6 .2-8 1.7z"/><path d="M12 6.5v13.7"/></svg><span>Openings</span></a>
+  </nav>
+  <div id="toasts" aria-live="polite"></div>
+  <script type="module" src="js/boot.js"></script>
+</body>
+</html>
